@@ -13,7 +13,7 @@ function SpecificWalletTransactionChart() {
         if (!contractAddress || !walletAddress) return;
 
         try {
-            const response = await axios.get(`http://0.0.0.0:8000/token-transfers/${contractAddress}/${walletAddress}`);
+            const response = await axios.get(`https://daostats.onrender.com/token-transfers/${contractAddress}/${walletAddress}`);
             setData(response.data.data);
         } catch (error) {
             console.error('There was an error fetching the transaction data:', error);

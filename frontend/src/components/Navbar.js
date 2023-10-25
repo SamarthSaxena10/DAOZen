@@ -17,7 +17,7 @@ const NavbarComponent = ({ refs }) => {
 
         try {
             // Fetch token metadata
-            const metadataResponse = await axios.get(`http://0.0.0.0:8000/token-transfers/${wallet_address}`);
+            const metadataResponse = await axios.get(`https://daostats.onrender.com/token-transfers/${wallet_address}`);
             console.log('Received token metadata:', metadataResponse.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -27,7 +27,7 @@ const NavbarComponent = ({ refs }) => {
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" className="flex items-center">
+                <a href="/" className="flex items-center">
                     <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 </a>
