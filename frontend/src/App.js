@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import TokenMetadataChart from './components/TokenMetadataChart';
 
 function App() {
   return (
-    <div className = "">
-      hello world i am the boss of the world
+    <div  >
+        <TokenMetadataChart/>
     </div>
   );
 }
