@@ -13,7 +13,7 @@ export default function BasicTable() {
 
   React.useEffect(() => {
     // Replace with your API endpoint
-    const apiUrl = 'http://127.0.0.1:8000/token-metadata';
+    const apiUrl = 'http://0.0.0.0:8000/token-metadata/0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11';
 
     fetch(apiUrl)
       .then((response) => response.json())

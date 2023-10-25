@@ -60,3 +60,17 @@ def get_token_metadata(wallet_address: str):
         }
     else:
         return {"error": "Failed to fetch data from API"}
+
+
+
+@app.get("/token-transfers/{contract_address}/{address}")
+def get_token_transfers_by_both_addresses(contract_address: str, address: str):
+    api_url =f"https://api.chainbase.online/v1/token/transfers?chain_id=1&contract_address={contract_address}&address={address}&page=1&limit=20"
+
+    response = requests.get(api_url, headers=HEADERS)
+
+    if response.status_code == 200:
+        data = response.json().get("data", [])
+        return {"data": data}
+    else:
+        return {"error": "Failed to fetch data from API"}
