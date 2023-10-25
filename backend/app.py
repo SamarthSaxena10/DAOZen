@@ -2,12 +2,9 @@ from fastapi import FastAPI
 import requests
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
-origins = [
-    "*",
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,40 +14,30 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Your provided API details
-API_URL = "https://api.chainbase.online/v1/token/holders?chain_id=1&contract_address=0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11&page=1&limit=20"
+BASE_URL = "https://api.chainbase.online/v1"
 HEADERS = {
     "accept": "application/json",
     "x-api-key": "2XDpWewEl2VHYli1Y4ta056YW76"
 }
-# this function will show the list of top token holders for that particular contract
-@app.get("/token-holders")
-async def get_token_holders():
-    response = requests.get(API_URL, headers=HEADERS)
+
+@app.get("/token-holders/{wallet_address}")
+async def get_token_holders(wallet_address: str):
+    api_url = f"{BASE_URL}/token/holders?chain_id=1&contract_address={wallet_address}&page=1&limit=20"
+    response = requests.get(api_url, headers=HEADERS)
     
-    # Check if the response is successful
     if response.status_code != 200:
         return {"error": "Failed to fetch data from the provided API."}
-
+    
     response_data = response.json()
-
-    # Extract the needed information
     token_holders_data = response_data.get('data', [])
     count = response_data.get('count', 0)
 
-    return {
-        "data": token_holders_data,
-        "count": count
-    }
-# fucntion that will show all the transfers done by a particular contract
-@app.get("/token-transfers")
-def get_token_transfers():
-    url = "https://api.chainbase.online/v1/token/transfers?chain_id=1&contract_address=0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11&page=20&limit=100"
-    headers = {
-        "accept": "application/json",
-        "x-api-key": "2XDpWewEl2VHYli1Y4ta056YW76"
-    }
-    response = requests.get(url, headers=headers)
+    return {"data": token_holders_data, "count": count}
+
+@app.get("/token-transfers/{wallet_address}")
+def get_token_transfers(wallet_address: str):
+    api_url = f"{BASE_URL}/token/transfers?chain_id=1&contract_address={wallet_address}&page=20&limit=100"
+    response = requests.get(api_url, headers=HEADERS)
 
     if response.status_code == 200:
         data = response.json().get("data", [])
@@ -58,15 +45,10 @@ def get_token_transfers():
     else:
         return {"error": "Failed to fetch data from API"}
 
-# this function will show the meta data for that particular token
-@app.get("/token-metadata")
-def get_token_metadata():
-    url = "https://api.chainbase.online/v1/token/metadata?chain_id=1&contract_address=0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11"
-    headers = {
-        "accept": "application/json",
-        "x-api-key": "2XDpWewEl2VHYli1Y4ta056YW76"
-    }
-    response = requests.get(url, headers=headers)
+@app.get("/token-metadata/{wallet_address}")
+def get_token_metadata(wallet_address: str):
+    api_url = f"{BASE_URL}/token/metadata?chain_id=1&contract_address={wallet_address}"
+    response = requests.get(api_url, headers=HEADERS)
 
     if response.status_code == 200:
         resp_data = response.json().get("data", {})

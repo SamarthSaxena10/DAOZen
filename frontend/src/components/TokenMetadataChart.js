@@ -9,7 +9,7 @@ function TokenMetadataChart() {
 
   const fetchTokenMetadata = async () => {
     try {
-        const response = await axios.get('http://127.0.0.1:8000/token-metadata', {
+        const response = await axios.get('http://0.0.0.0:8000/token-metadata/0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11', {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -38,7 +38,7 @@ function TokenMetadataChart() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-800">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-4 rounded-md w-full max-w-screen-lg shadow-lg">
         <h2 className="text-2xl mb-4 text-center font-semibold">Token Metadata</h2>
         
@@ -65,10 +65,10 @@ function TokenMetadataChart() {
                     <LabelList dataKey="current_usd_price" position="top" />
                 </Bar>
                 <Bar dataKey="tokenName" fill="#10B981" name="Name">
-                    <LabelList dataKey="name" position="top" />
+                    <LabelList dataKey="tokenName" position="top" />
                 </Bar>
                 <Bar dataKey="tokenSymbol" fill="#10B981" name="Symbol">
-                    <LabelList dataKey="symbol" position="top" />
+                    <LabelList dataKey="tokenSymbol" position="top" />
                 </Bar>
             </BarChart>
           </ResponsiveContainer>

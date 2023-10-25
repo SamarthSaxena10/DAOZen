@@ -7,7 +7,7 @@ function TokenTable() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/token-metadata');
+        const response = await axios.get('http://0.0.0.0:8000/token-metadata/0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
