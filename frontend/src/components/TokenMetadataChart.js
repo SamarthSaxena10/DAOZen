@@ -38,7 +38,7 @@ function TokenMetadataChart() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-800">
       <div className="bg-white p-4 rounded-md w-full max-w-screen-lg shadow-lg">
         <h2 className="text-2xl mb-4 text-center font-semibold">Token Metadata</h2>
         
