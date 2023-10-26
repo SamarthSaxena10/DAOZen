@@ -37,7 +37,7 @@ const NavbarComponent = ({ refs }) => {
                         <input
                             type="text"
                             className="px-4 py-2 mr-2 border rounded-lg"
-                            placeholder="Enter Wallet Address..."
+                            placeholder="Enter Contract Address..."
                             value={wallet_address}
                             onChange={(e) => setWallet_address(e.target.value)}
                         />
