@@ -27,7 +27,8 @@ function App() {
       <NavbarComponent refs = {{tokenMetadata, customWallet}}/>
       
       <TransactionChart />
-      <SpecificWalletTransactionChart ref = {customWallet} />
+      
+      <div ref = {customWallet}> <SpecificWalletTransactionChart/></div>
      
     </WalletContext.Provider>
     </div>
