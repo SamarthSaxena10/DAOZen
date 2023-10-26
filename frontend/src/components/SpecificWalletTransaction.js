@@ -39,6 +39,7 @@ function SpecificWalletTransactionChart() {
   const formattedData = data.map((item) => ({
     ...item,
     valueFormatted: item.value / 10 ** 18,
+    tokenSupply: item.tokenAmount, // Assuming the data contains a 'tokenAmount' property for token supply
   }));
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -99,12 +100,28 @@ function SpecificWalletTransactionChart() {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="valueFormatted" name="Value" />
-              <YAxis dataKey="log_index" name="Log Index" />
+              <YAxis
+                domain={[
+                  0,
+                  Math.max(
+                    ...formattedData.map((item) =>
+                      Math.max(item.log_index, item.tokenSupply)
+                    )
+                  ),
+                ]}
+                name="Log Index & Token Supply"
+              />
               <Tooltip
                 content={<CustomTooltip />}
                 cursor={{ fill: "transparent" }}
               />
               <Bar dataKey="log_index" fill="#3B82F6" name="Log Index" />
+              <Bar
+                dataKey="tokenSupply"
+                fill="#10B981"
+                name="Token Supply"
+              />{" "}
+              {/* Added Bar for Token Supply */}
               <Brush dataKey="valueFormatted" height={30} stroke="#10B981" />
             </BarChart>
           </ResponsiveContainer>
