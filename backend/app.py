@@ -87,3 +87,21 @@ def get_token_transfers_by_both_addresses(contract_address: str, token_id: str):
         return {"data": data}
     else:
         return {"error": "Failed to fetch data from API"}
+    
+    
+@app.get("/nft-transfer1/{contract_address}")
+def get_token_transfers_by_both_addresses(contract_address : str):
+    url = f"https://api.chainbase.online/v1/nft/transfers?chain_id=1&contract_address={contract_address}&page=1&limit=20"
+
+    headers = {
+    "accept": "application/json",
+    "x-api-key": "2XDpWewEl2VHYli1Y4ta056YW76"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json().get("data", [])
+        return {"data": data}
+    else:
+        return {"error": "Failed to fetch data from API"}
