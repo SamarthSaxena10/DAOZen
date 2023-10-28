@@ -12,7 +12,6 @@ import {
   Cell,
   Label,
 } from "recharts";
-
 import { WalletContext } from "../context";
 
 function TransactionChart() {
@@ -26,7 +25,7 @@ function TransactionChart() {
       const response = await axios.get(
         `https://daostats.onrender.com/token-transfers/${walletAddress}`
       );
-      setData(response.data.data);
+      setData(response.data.data || []);
     } catch (error) {
       console.error("There was an error fetching the transaction data:", error);
     }
@@ -36,10 +35,12 @@ function TransactionChart() {
     fetchData();
   }, [walletAddress]);
 
-  const formattedData = data.map((item) => ({
-    ...item,
-    valueFormatted: item.value / 10 ** 18,
-  }));
+  const formattedData = Array.isArray(data)
+    ? data.map((item) => ({
+        ...item,
+        valueFormatted: item.value / 10 ** 18,
+      }))
+    : [];
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
