@@ -14,6 +14,8 @@ import {
 } from "recharts";
 import { WalletContext } from "../context";
 
+import "../styles/analytics.css";
+
 function TransactionChart() {
   const [data, setData] = useState([]);
   const { walletAddress } = useContext(WalletContext);
@@ -60,7 +62,7 @@ function TransactionChart() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className=" analytics flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-4 rounded-md w-full max-w-screen-lg shadow-lg">
         <h2 className="text-2xl mb-4 text-center font-semibold">
           DAO ANALYTICS
