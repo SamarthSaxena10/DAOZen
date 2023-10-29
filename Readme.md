@@ -34,6 +34,27 @@ It's a Analytical Tool for Developer DAO members and User where one can see it's
 - Display of Token Metadata
 - Optimised Chainbase API for fast Data fetch
 
+## Setup & Installation
+
+- Clone the Repo
+  
+```
+https://github.com/SamarthSaxena10/DAOZen
+```
+
+- Navigate to Directories and INtall the Dependencies
+
+```
+ cd Frontend
+ cd Backend
+```
+
+- Run the Development Server
+
+```
+Npm start
+```
+
 ## Contributor 
 
 - [Samarth Saxena](https://github.com/SamarthSaxena10)
