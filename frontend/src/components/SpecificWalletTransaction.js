@@ -9,7 +9,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   Brush,
-  Cell,
 } from "recharts";
 
 import "../styles/Wallet.css";
