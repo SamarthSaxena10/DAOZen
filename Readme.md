@@ -22,6 +22,8 @@ This is an overview of our DAOZen (Analytical Tool) for Developer DAO x Chainbas
 - React
 - Chainbase API
 - Tailwind CSS
+- MUI
+  
 
 ## Features
 
@@ -29,5 +31,11 @@ This is an overview of our DAOZen (Analytical Tool) for Developer DAO x Chainbas
 - You can see Specific Wallet transfer by entering Contract Address and Wallet Address
 - NFT Holdings of Developer DAO
 - Display of Token Metadata
+- Optimised Chainbase API for fast Data fetch
+
+## Contributor 
+
+- [Samarth Saxena](https://github.com/SamarthSaxena10)
+- [Pragyanaaditya Borah](https://github.com/pragyan69)
 
 
