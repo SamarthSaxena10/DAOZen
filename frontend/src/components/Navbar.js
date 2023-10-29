@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { WalletContext } from "../context";
+import logo from "../logo.jpg";
 
 const NavbarComponent = ({ refs }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +30,10 @@ const NavbarComponent = ({ refs }) => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 w-full z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 mr-3"
-            alt="Flowbite Logo"
-          />
+        <a href="https://dao-stats.vercel.app/" className="flex items-center">
+          <img src={logo} className="h-12 mr-3" alt="Error" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            DAO Stats
+            DAOZen
           </span>
         </a>
         <div className="flex md:order-2">
@@ -103,20 +100,16 @@ const NavbarComponent = ({ refs }) => {
               >
                 Custom WalletData
               </a>
-
-
             </li>
             <a
-                onClick={() => scrollToComponent(refs.NftTransaction)}
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                style={{ cursor: "pointer" }}
-              >
-                NFT Transfers
-              </a>
+              onClick={() => scrollToComponent(refs.NftTransaction)}
+              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              style={{ cursor: "pointer" }}
+            >
+              NFT Transfers
+            </a>
 
-            <li>
-
-            </li>
+            <li></li>
           </ul>
         </div>
       </div>
