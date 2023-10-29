@@ -12,6 +12,8 @@
 
 It's a Analytical Tool for Developer DAO members and User where one can see it's personal holding with DAO analytics covering all major transaction in it , NFT transafer , Specific Wallet Transaction with all Data & Token Metadata. It's Powered By Chainbase API.
 
+[Deployment Video]( https://www.loom.com/share/5a85eee3a4ff4e79bf7f76514b561874?sid=4925a21f-0e8e-4778-a45c-b61d85c3c412)
+
 ![LandingPage](https://iili.io/JfTjUBt.png)
 
 ![result](https://iili.io/JfTj8QI.png)
